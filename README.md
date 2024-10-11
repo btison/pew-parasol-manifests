@@ -1,0 +1,1 @@
+Gitops manifests for Parasol store application
