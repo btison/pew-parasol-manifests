@@ -1,0 +1,87 @@
+replicaCount: 1
+
+image:
+  pullPolicy: IfNotPresent
+  organization:
+  host:
+  name:
+  tag:
+
+registry:
+  username:
+  password:
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 250Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /q/health/live
+    port: http
+    scheme: HTTP
+  initialDelaySeconds: 30
+  timeoutSeconds: 3
+  periodSeconds: 10
+  successThreshold: 1
+  failureThreshold: 3
+
+readinessProbe:
+  httpGet:
+    path: /q/health/ready
+    port: http
+    scheme: HTTP
+  initialDelaySeconds: 5
+  timeoutSeconds: 3
+  periodSeconds: 10
+  successThreshold: 1
+  failureThreshold: 3
+
+route:
+  enabled: false
+  host:
+  tlsEnabled: true
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+
+service:
+  portName: http
+  port: 8080
+  containerPort: 8080
+
+podSecurityContext: 
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - ALL
+
+database:
+  name: parasol-db
+  secret:
+    name: parasol-db
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

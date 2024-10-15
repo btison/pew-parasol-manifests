@@ -1,0 +1,16 @@
+image:
+  organization: {{ parasol_store_image_repository_organization }}
+  host: {{ parasol_store_image_repository_host }}
+  name: {{ parasol_store_image_repository_image_name }}
+  tag: {{ parasol_store_image_repository_image_tag }}
+
+registry:
+  username: {{ parasol_store_image_repository_username }}
+  password: {{ parasol_store_image_repository_password }}
+
+nameOverride: "parasol-store"
+
+database:
+  name: parasol-db
+  secret:
+    name: parasol-db
