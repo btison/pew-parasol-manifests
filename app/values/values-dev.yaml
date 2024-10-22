@@ -2,7 +2,7 @@ image:
   organization: {{ parasol_store_image_registry_organization }}
   host: {{ parasol_store_image_registry_host }}
   name: {{ parasol_store_image_registry_image_name }}
-  tag: {{ parasol_store_image_registry_image_tag }}
+  tag: "{{ parasol_store_image_registry_image_tag }}"
 
 registry:
   username: {{ parasol_store_image_registry_username }}
