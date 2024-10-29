@@ -76,9 +76,11 @@ securityContext:
       - ALL
 
 database:
-  name: parasol-db
-  secret:
-    name: parasol-db
+  namespace:
+  service: parasol-db
+  name: parasol
+  user: parasol
+  password: parasol
 
 nodeSelector: {}
 
