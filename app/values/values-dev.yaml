@@ -5,6 +5,7 @@ image:
   tag: "{{ parasol_store_image_registry_image_tag }}"
 
 registry:
+  type: Quay
   username: {{ parasol_store_image_registry_username }}
   password: {{ parasol_store_image_registry_password }}
 
