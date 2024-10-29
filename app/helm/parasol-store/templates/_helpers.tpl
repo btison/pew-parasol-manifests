@@ -69,3 +69,11 @@ Create the name of the service account to use
 {{- $auth:= printf "%s:%s" .Values.registry.username .Values.registry.password -}}
 {{- $auth | b64enc -}}
 {{- end }}
+
+{{- define "database.namespace" -}}
+{{- if .Values.database.namespace }}
+{{- .Values.database.namespace }}
+{{- else }}
+{{- .Release.Namespace }}
+{{- end }}
+{{- end }}

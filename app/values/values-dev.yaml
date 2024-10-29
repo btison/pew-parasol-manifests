@@ -11,6 +11,7 @@ registry:
 nameOverride: "parasol-store"
 
 database:
-  name: parasol-db
-  secret:
-    name: parasol-db
+  service: parasol-db
+  name: parasol
+  user: parasol
+  password: parasol
