@@ -88,3 +88,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+backstage:
+  id:
