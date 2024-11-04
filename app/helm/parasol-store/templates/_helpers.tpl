@@ -36,6 +36,7 @@ Common labels
 {{- define "parasol-store.labels" -}}
 helm.sh/chart: {{ include "parasol-store.chart" . }}
 {{ include "parasol-store.selectorLabels" . }}
+{{ include "backstage.labels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -48,6 +49,17 @@ Selector labels
 {{- define "parasol-store.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "parasol-store.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{/*
+Backstage labels
+*/}}
+{{- define "backstage.labels" -}}
+{{- if .Values.backstage.id }}
+backstage.io/kubernetes-id: {{ .Values.backstage.id }}
+{{- else }}
+backstage.io/kubernetes-id: {{ include "parasol-store.name" . }}
+{{- end }}
 {{- end }}
 
 {{/*

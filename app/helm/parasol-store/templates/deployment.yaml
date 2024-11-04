@@ -18,6 +18,7 @@ spec:
       {{- end }}
       labels:
         {{- include "parasol-store.selectorLabels" . | nindent 8 }}
+        {{- include "backstage.labels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
